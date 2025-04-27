@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1 id="quote">Loading...</h1>
+<button onclick="getQuote()">Get New Quote</button>
+
+<script>
+async function getQuote() {
+  const res = await fetch('https://api.quotable.io/random');
+  const data = await res.json();
+  document.getElementById('quote').innerText = `"${data.content}" — ${data.author}`;
+}
+getQuote();
+</script>
+
+</body>
+</html>
